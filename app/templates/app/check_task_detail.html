@@ -13,11 +13,13 @@
             <li><a href="{% url 'contact' %}">Contact</a></li>
         </ul>
     </nav>
-    <h1>Home Page</h1>
+    {% if task_detail %}
+    <h1>Check task detail for task:{{task_detail.id}}</h1>
     <hr />
-    {% if add_result %}
-        <h3>Task Id: {{add_result.id}}</h3>
-        <a href="{% url 'check_task_detail' add_result.id %}"> Check task details</a>
+    <h4>Task ID: {{task_detail.id}}</h4>
+    <h4>Task status: {{task_detail.status}}</h4>
+    <h4>Task state: {{task_detail.state}}</h4>
+    <h4>Task Result: {{task_detail.result}}</h4>
     {% endif %}
 </body>
 </html>
