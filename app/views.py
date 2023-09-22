@@ -1,10 +1,12 @@
 from django.shortcuts import render
-
+from django_celery_practice.celery import add
 # Create your views here.
 
 
 def home(request):
-    return render(request, "app/home.html")
+    result = add.delay(10, 5)
+    print("Result:", result)
+    return render(request, "app/home.html", {"result": result})
 
 
 def contact(request):
