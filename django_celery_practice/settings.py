@@ -127,7 +127,29 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Celery Settings
 
 CELERY_BROKER_URL = "redis://127.0.0.1:6379/0"
+# celery result using redis
 # CELERY_RESULT_BACKEND = "redis://127.0.0.1:6379/0"
+
 CELERY_TIMEZONE = "Asia/Kolkata"
+
+# celery result using django db
 CELERY_RESULT_BACKEND = 'django-db'
+
+# To show task details like name etc.
 CELERY_RESULT_EXTENDED = True
+
+# Celery beat settings
+# Method 1
+
+# CELERY_BEAT_SCHEDULE = {
+#     "clear-cache-in-10-sec": {
+#         "task": "app.tasks.clear_cache",
+#         "schedule": 10,
+#         "args": (1234,)
+#     }
+
+#     # Add more new task here if needed
+# }
+
+# Method 2 used in celery.py file
+
